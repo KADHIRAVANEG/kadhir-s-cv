@@ -4,186 +4,186 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kadhiravan's Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
+        /* General Styles */
         body {
-            background-color: #1a1a1a;
-            color: #d9d9d9;
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        .navbar {
-            background-color: #2b2b2b;
-        }
-
-        .navbar-brand, .nav-link {
-            color: #ff4d4d !important;
-        }
-
-        .navbar-nav .nav-item .nav-link.active {
-            color: #ff4d4d !important;
-        }
-
-        .profile-section {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 20px;
-        }
-
-        .profile-img {
-            width: 40%;
-            border-radius: 50%;
-            border: 5px solid #ff4d4d;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .about-me {
-            width: 55%;
-        }
-
-        .about-me h2 {
-            color: #ff4d4d;
-        }
-
-        .about-me p {
-            font-size: 1.2rem;
-        }
-
-        .badge {
-            display: block;
-            margin: 20px auto;
-            max-width: 100%;
-        }
-
-        .contact-form {
-            margin-top: 40px;
-        }
-
-        .footer {
+            background-color: #0a0a0a;
+            color: #00ff00;
             text-align: center;
-            padding: 20px;
-            background-color: #2b2b2b;
-            color: #d9d9d9;
+            margin: 0;
         }
 
-        .social-icons a {
-            color: #ff4d4d;
-            font-size: 24px;
-            margin: 10px;
-            text-decoration: none;
-        }
-
-        .social-icons a:hover {
-            color: #fff;
-        }
-
-        .background {
-            background-image: url('https://raw.githubusercontent.com/KADHIRAVANEG/Background--image/refs/heads/main/thumb-350-85329.webp');
-            background-size: cover;
-            background-position: center;
-            height: 100vh;
-        }
-
-        .loading {
+        /* Loader Animation */
+        .loader {
             position: fixed;
-            top: 0;
-            left: 0;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loader::after {
+            content: "";
+            width: 40px;
+            height: 40px;
+            border: 4px solid #00ff00;
+            border-top: 4px solid transparent;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Profile Section */
+        .profile-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .profile-pic {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 5px solid #00ff00;
+            margin-right: 20px;
+        }
+        .about-me {
+            text-align: left;
+            max-width: 600px;
+        }
+
+        /* TryHackMe Badge */
+        .thm-badge {
+            width: 300px;
+            height: 100px;
+            border: none;
+        }
+
+        /* Achievements Section */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        /* Contact Form */
+        form {
+            max-width: 400px;
+            margin: auto;
+        }
+        input, textarea {
             width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7) url('https://media.giphy.com/media/3o7qE2sOTR8l8V54Fk/giphy.gif') no-repeat center center;
-            z-index: 9999;
-            display: none;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #00ff00;
+            background: black;
+            color: #00ff00;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 30px;
+            padding: 10px;
+            background: #222;
+        }
+        footer a {
+            color: #00ff00;
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
-    <div class="loading" id="loading"></div>
-    <div class="background">
-        <nav class="navbar navbar-expand-lg">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">Kadhiravan's Portfolio</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
 
-        <div class="container profile-section">
-            <img src="https://raw.githubusercontent.com/KADHIRAVANEG/Profile-picture/ea86656ed8216188e42f165c632fffd1aea96a3e/IMG_20240930_135658_186.webp" alt="Kadhiravan" class="profile-img">
+    <!-- Loading Animation -->
+    <div class="loader"></div>
+
+    <!-- Profile Section -->
+    <header>
+        <div class="profile-container">
+            <img src="https://raw.githubusercontent.com/KADHIRAVANEG/Profile-picture/ea86656ed8216188e42f165c632fffd1aea96a3e/IMG_20240930_135658_186.webp" alt="Kadhiravan's Profile Picture" class="profile-pic">
             <div class="about-me">
-                <h2>About Me</h2>
-                <p>I am a passionate cybersecurity enthusiast with a strong interest in ethical hacking. Currently studying in the field of Cybersecurity, I enjoy solving problems and learning new technologies. I love working on web development projects and contributing to the community.</p>
-                <p>In addition to my academic achievements, I have worked on various cybersecurity platforms, participated in challenges, and completed rooms on TryHackMe. I am constantly improving my skills in web security, penetration testing, and more!</p>
+                <h1>Kadhiravan E G</h1>
+                <p>Cybersecurity enthusiast passionate about ethical hacking, digital forensics, and cybersecurity research. Currently pursuing a Bachelor's in Cybersecurity.</p>
+                <p>I am actively engaged in learning penetration testing, malware analysis, and networking security. My goal is to become an expert in cybersecurity and contribute to making the digital world safer.</p>
             </div>
         </div>
+    </header>
 
-        <section id="contact" class="container contact-form">
-            <h2 class="text-center" style="color: #ff4d4d;">Contact Me</h2>
-            <form action="https://formspree.io/f/xwppjnle" method="POST">
-                <div class="mb-3">
-                    <label for="name" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" required>
-                </div>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
-                </div>
-                <div class="mb-3">
-                    <label for="message" class="form-label">Message</label>
-                    <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-                </div>
-                <button type="submit" class="btn btn-primary w-100">Send</button>
-            </form>
-        </section>
+    <!-- TryHackMe Badge -->
+    <section id="thm">
+        <h2>My TryHackMe Progress</h2>
+        <iframe src="https://tryhackme.com/api/v2/badges/public-profile?userPublicId=3803576" class="thm-badge"></iframe>
+    </section>
 
-        <section id="projects" class="container">
-            <h2 class="text-center" style="color: #ff4d4d;">Achievements & Projects</h2>
-            <div class="row">
-                <div class="col-md-4">
-                    <h4>Kadhir's Achievements</h4>
-                    <ul>
-                        <li>SSLC passed with more than 80%</li>
-                        <li>HSE passed with more than 85%</li>
-                        <li>15 Rooms completed in TryHackMe</li>
-                    </ul>
-                </div>
-                <div class="col-md-8">
-                    <h4>LinkedIn Profile</h4>
-                    <a href="https://www.linkedin.com/in/kadhiravan-e-g-028818327" target="_blank">Kadhiravan's LinkedIn</a>
-                    <h4>Instagram Profile</h4>
-                    <a href="https://www.instagram.com/__kadhiravan__" target="_blank">Kadhiravan's Instagram</a>
-                </div>
-            </div>
-        </section>
+    <!-- Achievements Section -->
+    <section id="achievements">
+        <h2>Achievements</h2>
+        <h3>Kadhir's Achievements</h3>
+        <ul>
+            <li>SSLC passed with more than 80%</li>
+            <li>HSE passed with more than 85%</li>
+            <li>Completed 15+ rooms on TryHackMe</li>
+        </ul>
 
-        <footer class="footer">
-            <p>© 2024 Kadhiravan. All rights reserved.</p>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/__kadhiravan__" target="_blank">Instagram</a>
-                <a href="https://www.linkedin.com/in/kadhiravan-e-g-028818327" target="_blank">LinkedIn</a>
-            </div>
-        </footer>
-    </div>
+        <!-- Certifications -->
+        <h3>Certifications</h3>
+        <ul>
+            <li><a href="https://www.linkedin.com/posts/kadhiravan-e-g-028818327_activity-7264247627016200192-lRvZ" target="_blank">Certificate 1</a></li>
+            <li><a href="https://www.linkedin.com/posts/kadhiravan-e-g-028818327_activity-7264248230635360256-eF1V" target="_blank">Certificate 2</a></li>
+            <li><a href="https://www.linkedin.com/posts/kadhiravan-e-g-028818327_activity-7264248272708374528-uRgW" target="_blank">Certificate 3</a></li>
+            <li><a href="https://www.linkedin.com/posts/kadhiravan-e-g-028818327_tryhackme-activity-7277557391263449088-Rhen" target="_blank">Certificate 4</a></li>
+            <li><a href="https://www.linkedin.com/posts/kadhiravan-e-g-028818327_certificate-of-completion-activity-7271454107398291457-z4_B" target="_blank">Certificate 5</a></li>
+        </ul>
+    </section>
+
+    <!-- Contact Form -->
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <form action="https://formspree.io/f/xwppjnle" method="POST">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Kadhiravan. All Rights Reserved.</p>
+        <a href="https://www.instagram.com/__kadhiravan__" target="_blank">Instagram</a> | 
+        <a href="https://www.linkedin.com/in/kadhiravan-e-g-028818327" target="_blank">LinkedIn</a>
+    </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                document.getElementById('loading').style.display = 'none';
-            }, 3000); // Hide loading after 3 seconds
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Loader Animation
+        window.addEventListener("load", function() {
+            document.querySelector(".loader").style.display = "none";
         });
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
